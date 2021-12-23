@@ -1,0 +1,775 @@
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "TREE",
+  "ElementResolver": {
+    "ResolutionMap": {
+      "Point": {
+        "Key": "Autodesk.DesignScript.Geometry.Point",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Vector": {
+        "Key": "Autodesk.DesignScript.Geometry.Vector",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Plane.ByOriginNormal": {
+        "Key": "Autodesk.DesignScript.Geometry.Plane",
+        "Value": "ProtoGeometry.dll"
+      },
+      "Plane": {
+        "Key": "Autodesk.DesignScript.Geometry.Plane",
+        "Value": "ProtoGeometry.dll"
+      }
+    }
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.Dynamo.MeshToolkit.Mesh.ImportFile@string",
+      "Id": "6f19e63dd0414170895982215150b016",
+      "Inputs": [
+        {
+          "Id": "44c57f02c8804a818253a8cc83157fa9",
+          "Name": "fileName",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "222189f3d584410caefeb4efdc76502f",
+          "Name": "Mesh[]",
+          "Description": "Mesh[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Imports a file, parsing it into a number of Meshes. Currently supported formats are: .mix -- Meshmixer .obj -- Wavefront\n\nMesh.ImportFile (fileName: string): Mesh[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "C:\\Users\\moham\\Desktop\\Christmas-Tree .obj",
+      "Id": "42b94c64ac3f4265b5c7d4c622d33079",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "093f5f8b35324d998dc55b276c0d2d93",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a string."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.Dynamo.MeshToolkit.Mesh.Rotate@Autodesk.DesignScript.Geometry.Vector,double",
+      "Id": "7afdeaed5e984869b72faccc4774538f",
+      "Inputs": [
+        {
+          "Id": "2c1f81a47a94440fb4dab7b1c27560da",
+          "Name": "mesh",
+          "Description": "Autodesk.Dynamo.MeshToolkit.Mesh",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "476a086c52ba4c2084a9903f1f266a49",
+          "Name": "axis",
+          "Description": "Vector",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2a7bb01f65e7448fb4f9c260934a7bad",
+          "Name": "degrees",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b13f6a223e8543b081d8cb296f1ea945",
+          "Name": "Mesh",
+          "Description": "Mesh",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Rotate the Mesh around the input axis by input degrees. Rotation is centered at the origin\n\nMesh.Rotate (axis: Vector, degrees: double = 0): Mesh"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "P1=Point.ByCoordinates(0,0,0);\nP2=Point.ByCoordinates(5,0,0);\nVector.ByTwoPoints(P1,P2);\n90;",
+      "Id": "3e0734c9e1634a89863a68aed9449b78",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "063a626a458747d591ee8dfab761c263",
+          "Name": "",
+          "Description": "P1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0ccf4b8fb2cf42398f52476ba82acafb",
+          "Name": "",
+          "Description": "P2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e2df05cbc2034a2a827caabdd76a1de2",
+          "Name": "",
+          "Description": "Value of expression at line 3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "2fe7ce5a612b4339a69070122d5978f7",
+          "Name": "",
+          "Description": "Value of expression at line 4",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.Dynamo.MeshToolkit.Mesh.Translate@double,double,double",
+      "Id": "98d4184fbfc541f9b2ac4ead3de03937",
+      "Inputs": [
+        {
+          "Id": "cd38b9194da140e6aeb7b408f7fd6b8d",
+          "Name": "mesh",
+          "Description": "Autodesk.Dynamo.MeshToolkit.Mesh",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "5dea2b88bd2f4a62b100219e7b1d663d",
+          "Name": "x",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "02daf0acecac4b19b48e0382a9081a9d",
+          "Name": "y",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "004213b97451428c827521dcd32ad7a7",
+          "Name": "z",
+          "Description": "double\nDefault value : 0",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b0eb399a2d864db88133ddd5c5df71d3",
+          "Name": "Mesh",
+          "Description": "Mesh",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Translates the Mesh by the input distances\n\nMesh.Translate (x: double = 0, y: double = 0, z: double = 0): Mesh"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.Dynamo.MeshToolkit.Mesh.Smooth@double",
+      "Id": "912ec1201d1b4d24ad832aac637dc052",
+      "Inputs": [
+        {
+          "Id": "37d718dba0b1410f9ca9d198c07eec6b",
+          "Name": "mesh",
+          "Description": "Autodesk.Dynamo.MeshToolkit.Mesh",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "b24a44cb96834705921eee8b2ed4ffe1",
+          "Name": "scale",
+          "Description": "Sets the \"spatial scale\" of smoothing. Smaller values yield more local smoothing, and typically result in a less \"smooth\" looking result (0.1 - 64.0)\n\ndouble\nDefault value : 4",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "e76850e7b50541b7aa54c5cbec91b6ec",
+          "Name": "mesh",
+          "Description": "Smooth mesh",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Returns a new smooth Mesh. Smoothing type by default is cotangent which smooths without spreading the vertices.\n\nMesh.Smooth (scale: double = 4): Mesh"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "0.2;\n0.2;\n0.2;",
+      "Id": "07f73c50ed874fb4b35b0bcdcdcbe793",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "e48fa69158b8432aa01b34a48e42ff78",
+          "Name": "",
+          "Description": "Value of expression at line 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "fb3f28b5a66047d38a67548ef5237ed4",
+          "Name": "",
+          "Description": "Value of expression at line 2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "7f7bffcda8d243169d26b6c1d9af69d7",
+          "Name": "",
+          "Description": "Value of expression at line 3",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Allows for DesignScript code to be authored directly"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.Dynamo.MeshToolkit.Mesh.Scale@double,double,double",
+      "Id": "bab0ebc9a5e0410089b10da3140bb41f",
+      "Inputs": [
+        {
+          "Id": "fd17d7f003434443a82abc4c5b06dc76",
+          "Name": "mesh",
+          "Description": "Autodesk.Dynamo.MeshToolkit.Mesh",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "37d1883f7248429ba6227ff3ed71bc88",
+          "Name": "x",
+          "Description": "double\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "fad42744ae824dedbd2d6bdc129aace8",
+          "Name": "y",
+          "Description": "double\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "df03cc815d614959b551ebf7dd5f95b4",
+          "Name": "z",
+          "Description": "double\nDefault value : 1",
+          "UsingDefaultValue": true,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "a0eaacbe448843fdab37b59958d9fedc",
+          "Name": "Mesh",
+          "Description": "Mesh",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Scale Mesh non-uniformally by scale factors\n\nMesh.Scale (x: double = 1, y: double = 1, z: double = 1): Mesh"
+    },
+    {
+      "ConcreteType": "Watch3DNodeModels.Watch3D, Watch3DNodeModels",
+      "WatchWidth": 143.0,
+      "WatchHeight": 126.0,
+      "WasExecuted": true,
+      "Camera": {
+        "Name": "47c3870c-0cc5-40d2-b40a-f5defae0e8f1 Preview",
+        "EyeX": -11.348436295986176,
+        "EyeY": 24.657654762268066,
+        "EyeZ": 44.420673370361328,
+        "LookX": 10.750494956970215,
+        "LookY": -11.646369934082031,
+        "LookZ": -51.960731506347656,
+        "UpX": 0.0,
+        "UpY": 1.0,
+        "UpZ": 0.0
+      },
+      "NodeType": "ExtensionNode",
+      "Id": "47c3870c0cc540d2b40af5defae0e8f1",
+      "Inputs": [
+        {
+          "Id": "5dbd54ee0bbf4d979a7a24c8087c549e",
+          "Name": "",
+          "Description": "Incoming geometry objects.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f0fc039622ca41bd82a675c720df7555",
+          "Name": "",
+          "Description": "Incoming geometry objects.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Shows a dynamic preview of geometry."
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "Autodesk.Dynamo.MeshToolkit.Display.MeshDisplay.ByMeshColor@Autodesk.Dynamo.MeshToolkit.Mesh,DSCore.Color[]",
+      "Id": "ddfa2bc0d1354e00acc79badfe583239",
+      "Inputs": [
+        {
+          "Id": "bd2f2d54aca94cb582c2c07ae94b6c3f",
+          "Name": "mesh",
+          "Description": "Mesh",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e4fa15825dd54e8faa9c2c0438d0986e",
+          "Name": "meshColoring",
+          "Description": "single color, triangle colors, or vertex colors\n\nColor[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f8927b5971c84c0687c2d389c3136dd4",
+          "Name": "MeshDisplay",
+          "Description": "MeshDisplay",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Display mesh by single color, triangle colors, or vertex colors\n\nMeshDisplay.ByMeshColor (mesh: Mesh, meshColoring: Color[]): MeshDisplay"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.ColorPalette, CoreNodeModels",
+      "InputValue": {
+        "R": 46,
+        "G": 139,
+        "B": 87,
+        "A": 255
+      },
+      "NodeType": "ColorInputNode",
+      "Id": "fd201596bf8341b0922b5f030edcd798",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "b3a0d5e43e8d46be92fd0940898da147",
+          "Name": "Color",
+          "Description": "Selected Color.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Select a Color from the palette"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "222189f3d584410caefeb4efdc76502f",
+      "End": "37d718dba0b1410f9ca9d198c07eec6b",
+      "Id": "e42a3b970e07468d871cf92170b30f57"
+    },
+    {
+      "Start": "093f5f8b35324d998dc55b276c0d2d93",
+      "End": "44c57f02c8804a818253a8cc83157fa9",
+      "Id": "84745b7399ee449a9f0395070f131acd"
+    },
+    {
+      "Start": "e2df05cbc2034a2a827caabdd76a1de2",
+      "End": "476a086c52ba4c2084a9903f1f266a49",
+      "Id": "3dd7418ee8204c9697a86440351a30bb"
+    },
+    {
+      "Start": "2fe7ce5a612b4339a69070122d5978f7",
+      "End": "2a7bb01f65e7448fb4f9c260934a7bad",
+      "Id": "9c8f02dc19be49eba5ba9d1845d64958"
+    },
+    {
+      "Start": "b0eb399a2d864db88133ddd5c5df71d3",
+      "End": "bd2f2d54aca94cb582c2c07ae94b6c3f",
+      "Id": "ba2d634378c74e74a8175d8ac115c783"
+    },
+    {
+      "Start": "e76850e7b50541b7aa54c5cbec91b6ec",
+      "End": "fd17d7f003434443a82abc4c5b06dc76",
+      "Id": "29a240ca686b4e5bad5f9e304b8598a2"
+    },
+    {
+      "Start": "e48fa69158b8432aa01b34a48e42ff78",
+      "End": "004213b97451428c827521dcd32ad7a7",
+      "Id": "3576569b7c5946698f9ce955d25508bf"
+    },
+    {
+      "Start": "fb3f28b5a66047d38a67548ef5237ed4",
+      "End": "37d1883f7248429ba6227ff3ed71bc88",
+      "Id": "dd8fafb8794744478512b54b568a12fe"
+    },
+    {
+      "Start": "fb3f28b5a66047d38a67548ef5237ed4",
+      "End": "fad42744ae824dedbd2d6bdc129aace8",
+      "Id": "23a131e7b65f43f6a5b2113f53346b79"
+    },
+    {
+      "Start": "fb3f28b5a66047d38a67548ef5237ed4",
+      "End": "df03cc815d614959b551ebf7dd5f95b4",
+      "Id": "ae8273638da84ba8833dc5c8fc491439"
+    },
+    {
+      "Start": "7f7bffcda8d243169d26b6c1d9af69d7",
+      "End": "5dea2b88bd2f4a62b100219e7b1d663d",
+      "Id": "e223e1b586be433da2abf03c49a0310b"
+    },
+    {
+      "Start": "a0eaacbe448843fdab37b59958d9fedc",
+      "End": "cd38b9194da140e6aeb7b408f7fd6b8d",
+      "Id": "7bd60acde9694d25a484f8f49efe40e8"
+    },
+    {
+      "Start": "f8927b5971c84c0687c2d389c3136dd4",
+      "End": "5dbd54ee0bbf4d979a7a24c8087c549e",
+      "Id": "e2f6497cf90d4776af942c0469619d1c"
+    },
+    {
+      "Start": "b3a0d5e43e8d46be92fd0940898da147",
+      "End": "e4fa15825dd54e8faa9c2c0438d0986e",
+      "Id": "fbd9177c08b14feaadbc2768bc56e020"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "MeshToolkit",
+      "Version": "3.0.0",
+      "ReferenceType": "Package",
+      "Nodes": [
+        "6f19e63dd0414170895982215150b016",
+        "7afdeaed5e984869b72faccc4774538f",
+        "98d4184fbfc541f9b2ac4ead3de03937",
+        "912ec1201d1b4d24ad832aac637dc052",
+        "bab0ebc9a5e0410089b10da3140bb41f",
+        "ddfa2bc0d1354e00acc79badfe583239"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "2.12",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.12.0.5650",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Background Preview",
+      "EyeX": 61.167925680056214,
+      "EyeY": 29.575632971478626,
+      "EyeZ": 41.641718477010727,
+      "LookX": -37.284408569335938,
+      "LookY": -6.3538284301757813,
+      "LookZ": -21.6910400390625,
+      "UpX": 0.060295168310403824,
+      "UpY": 0.99756407737731934,
+      "UpZ": 0.035078942775726318
+    },
+    "NodeViews": [
+      {
+        "ShowGeometry": false,
+        "Name": "Mesh.ImportFile",
+        "Id": "6f19e63dd0414170895982215150b016",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 265.540037526205,
+        "Y": -209.403145033596
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "String",
+        "Id": "42b94c64ac3f4265b5c7d4c622d33079",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -25.782589610509092,
+        "Y": -209.403145033596
+      },
+      {
+        "ShowGeometry": false,
+        "Name": "Mesh.Rotate",
+        "Id": "7afdeaed5e984869b72faccc4774538f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1145.9714101687682,
+        "Y": 14.179937116268718
+      },
+      {
+        "ShowGeometry": false,
+        "Name": "Code Block",
+        "Id": "3e0734c9e1634a89863a68aed9449b78",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 766.55689825522711,
+        "Y": 13.744009495248463
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Mesh.Translate",
+        "Id": "98d4184fbfc541f9b2ac4ead3de03937",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1829.6167247660994,
+        "Y": 8.2127452899252376
+      },
+      {
+        "ShowGeometry": false,
+        "Name": "Mesh.Smooth",
+        "Id": "912ec1201d1b4d24ad832aac637dc052",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 557.332196298836,
+        "Y": -209.403145033596
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Code Block",
+        "Id": "07f73c50ed874fb4b35b0bcdcdcbe793",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1347.3868264154107,
+        "Y": 24.817702688344013
+      },
+      {
+        "ShowGeometry": false,
+        "Name": "Mesh.Scale",
+        "Id": "bab0ebc9a5e0410089b10da3140bb41f",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 1540.0311377688388,
+        "Y": -28.982536539785372
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Watch 3D",
+        "Id": "47c3870c0cc540d2b40af5defae0e8f1",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2599.6808445125844,
+        "Y": 109.01516421294792
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "MeshDisplay.ByMeshColor",
+        "Id": "ddfa2bc0d1354e00acc79badfe583239",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2270.4198956325968,
+        "Y": 142.90086954774063
+      },
+      {
+        "ShowGeometry": true,
+        "Name": "Color Palette",
+        "Id": "fd201596bf8341b0922b5f030edcd798",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 2082.6838169614452,
+        "Y": 178.94074044341903
+      }
+    ],
+    "Annotations": [
+      {
+        "Id": "58ebd978802c47a9ad88782d0b069f36",
+        "Title": "Object Importing",
+        "Nodes": [
+          "6f19e63dd0414170895982215150b016",
+          "42b94c64ac3f4265b5c7d4c622d33079",
+          "912ec1201d1b4d24ad832aac637dc052"
+        ],
+        "Left": -35.782589610509092,
+        "Top": -262.403145033596,
+        "Width": 790.11478590934507,
+        "Height": 172.0,
+        "FontSize": 36.0,
+        "InitialTop": -209.403145033596,
+        "InitialHeight": 145.0,
+        "TextblockHeight": 43.0,
+        "Background": "#FFC1D676"
+      },
+      {
+        "Id": "0242ceb782784f06b434ed44fafe2721",
+        "Title": "Refining n Placing",
+        "Nodes": [
+          "7afdeaed5e984869b72faccc4774538f",
+          "3e0734c9e1634a89863a68aed9449b78",
+          "98d4184fbfc541f9b2ac4ead3de03937",
+          "07f73c50ed874fb4b35b0bcdcdcbe793",
+          "bab0ebc9a5e0410089b10da3140bb41f"
+        ],
+        "Left": 756.55689825522711,
+        "Top": -81.982536539785372,
+        "Width": 1269.0598265108724,
+        "Height": 261.19528182971061,
+        "FontSize": 36.0,
+        "InitialTop": -28.982536539785372,
+        "InitialHeight": 198.80023922812939,
+        "TextblockHeight": 43.0,
+        "Background": "#FFB5B5B5"
+      },
+      {
+        "Id": "4dcf93feae7046489959913b681e5cad",
+        "Title": "Coloring",
+        "Nodes": [
+          "47c3870c0cc540d2b40af5defae0e8f1",
+          "ddfa2bc0d1354e00acc79badfe583239",
+          "fd201596bf8341b0922b5f030edcd798"
+        ],
+        "Left": 2072.6838169614452,
+        "Top": 56.015164212947923,
+        "Width": 689.99702755113913,
+        "Height": 257.0,
+        "FontSize": 36.0,
+        "InitialTop": 109.01516421294792,
+        "InitialHeight": 308.0,
+        "TextblockHeight": 43.0,
+        "Background": "#FFC1D676"
+      }
+    ],
+    "X": 69.02628797209843,
+    "Y": 125.62700358515252,
+    "Zoom": 0.23189402397047029
+  }
+}
